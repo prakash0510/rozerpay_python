@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "api/**/*.py", "use": "@vercel/python" }
+  ],
+  "routes": [
+    { "src": "/api/create-order", "dest": "/api/create_order.py" },
+    { "src": "/api/verify-payment", "dest": "/api/verify_payment.py" },
+    { "src": "/api/verify-signature", "dest": "/api/verify_signature.py" }
+  ]
+}
