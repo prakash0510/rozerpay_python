@@ -3,8 +3,16 @@ from fastapi.responses import JSONResponse
 import hmac
 import hashlib
 import os
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # 👈 OR restrict to your frontend domain (e.g. ["https://myfrontend.vercel.app"])
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 RAZORPAY_KEY_SECRET = os.getenv("RAZORPAY_KEY_SECRET")
 
