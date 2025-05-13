@@ -24,3 +24,13 @@ async def create_order(request: Request):
         })
     except Exception as e:
         return JSONResponse(status_code=500, content={"error": str(e)})
+
+
+@app.get("/api/test")
+async def create_order(request: Request):
+    try:
+        return JSONResponse(content={
+                "message": "Hello from Razorpay API"
+        })
+    except Exception as e:
+        return JSONResponse(status_code=500, content={"error": str(e)})
