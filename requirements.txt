@@ -2,3 +2,4 @@ fastapi
 uvicorn
 razorpay
 setuptools
+python-dotenv
