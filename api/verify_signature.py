@@ -8,7 +8,7 @@ from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Replace with frontend origin in prod
+    allow_origins=["*","http://localhost:3000"],  # Replace with frontend origin in prod
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -16,7 +16,7 @@ app.add_middleware(
 
 RAZORPAY_KEY_SECRET = os.getenv("RAZORPAY_KEY_SECRET")
 
-@app.post("/api/verify-signature")
+@app.api_route("/api/create-order", methods=["OPTIONS", "POST"])
 async def verify_signature(request: Request):
     data = await request.json()
     order_id = data.get("razorpay_order_id")
