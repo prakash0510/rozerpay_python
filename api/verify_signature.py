@@ -8,7 +8,7 @@ from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # 👈 OR restrict to your frontend domain (e.g. ["https://myfrontend.vercel.app"])
+    allow_origins=["*"],  # Replace with frontend origin in prod
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
